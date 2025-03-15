@@ -20,7 +20,7 @@ nor can it ever know peace" - **Jaun Alia** <br>
 
 ![](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHZ5MHE3MGYxam1lcGtia2ZzcjVvbTJmNnRsOTZ2M3Y2ZndiNmRsayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xY4DmnM4b5ICImDUWz/giphy.gif)
 
-### You Can Find My Research Here And Book Recomendations 
+### You Can Find My Research Here And Book Recomendations: 
 
 1. In Search of Lost Time by Marcel Proust
 2. The Kite Runner by Khaled Hosseini
