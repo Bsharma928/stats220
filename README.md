@@ -1,11 +1,11 @@
 # stats220:
 
-This is my repo for STATS 220. 
+This is my repo for STATS220. 
 
 ## A Little About Me:
  
 - I am undertaking a degree in a BSc in Microbiology.
-- I am taking STATS 220 because I wanna be a problem for reviewer #2.  
+- I am taking STATS220 because I wanna be a problem for reviewer #2.  
 - I am interested in learning about Statistics and Medical Microbiology -- utilising both deciplines in novel ways to interpret the (_micro_) natural world.
 - I am a poet and a published undergrad student.
 
