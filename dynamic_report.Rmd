@@ -1,0 +1,165 @@
+---
+title: "My Dynamic Report"
+subtitle: "The University of Auckland" 
+author: "Bhavesh Sharma" 
+output: html_fragment
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE, warning=FALSE, error=FALSE)
+##Loading in the packages
+library(tidyverse)
+
+
+```
+
+```{css, echo = FALSE}
+body{
+background-color: #f4f4f4; /* changes the background colour */
+font-family: Times, Times New Roman, serif;/* changes the font */
+font-size: 20px;
+color: #000000 /* font colour */
+
+}
+p{
+  font-size:20px;
+  font-family: Times New Roman;/*Making the text larger, the original text is too small when knitting */
+}
+
+h1{
+  font-family: Times, Times New Roman, serif;
+  
+}
+
+h2{
+  font-family: Times, Times Times New Roman, serif;
+}
+```
+
+# Survey Report On YouTube Ads
+
+## Introduction
+
+This survey aims to analyse the types of advertisements targeted at students while they study for their tests. Over time, the frequency and duration of online ads have increased, particularly with platforms like YouTube enforcing stricter anti-ad blocker policies. With unskippable and prolonged advertisements becoming more common, I sought to investigate the nature and prevalence of these ads, focusing on their content and how they might impact students' study experiences. Respondents were also encouraged to complete this survey multiple times, and preferably as soon as these ads appeared.
+
+![An artwork done by me Titled "One Fateful STATS330 With A Legend"](images/Bhai.3.jpg){width="6.43in"}
+
+## Methodology
+
+```{r, echo=FALSE, include = FALSE}
+##Loading in the data and manipulating it to its final form 
+logged_data <- read.csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTV839dTmjvD2NRdMVKePpXlO4KLmPnU_pYMAFgEjvxB1CZiTBpZhG5bCM3b622-A6ogY6ySZaHXR0V/pub?output=csv")
+
+
+survey_data_renamed <- logged_data %>% 
+  rename(Skippable = 8,
+         Type = 9,
+         Response = 10,
+         Duration = 11)
+
+max_response <- survey_data_renamed$Response %>%   ## The highest someone has been agitated by an Ad 
+  max(na.rm = TRUE)
+
+min_response <- survey_data_renamed$Response %>%  ## The lowest rating of someone that has been agitated by an Ad
+  min(na.rm = TRUE)
+
+median_response <- survey_data_renamed$Response %>%
+  median(na.rm = TRUE) %>%    ## We already know the data is skewed, no reason to use mean here
+  round(digits = 1)
+
+yeeHAW <- paste("On average respondents rated a", round(median_response, digits = 0), 
+      "on how they felt about the ads.") #I have rounded here to 0 s.f as our ratings were in whole numbers
+
+##ANOTHER ONE 
+beebop <- paste("the highest rating for how respondents felt was around", max_response, "and the lowest rating for how responds felt was around", min_response)
+
+# How many observations do we have chief? 
+obsv <- paste("In total we were able to collect", nrow(logged_data), "for our survey.")
+
+```
+
+The survey was designed using Google's Surveys. In general the I decided to keep the survey questions short and simple. The placement of the questions were also accounted for, where questions that were easier to answer were placed first, followed by the harder questions (i.e., How Long Was The Ad Approximately?). In an ideal survey, such as the ones used by Stats NZ for Household Labour Force Surveys, we would place harder questions in the body of the survey which would then be flanked by easier questions first and towards the end of the survey. Given that respondents can follow up on the survey, we would also use stratification for random allocation of the primary sampling units (i.e, students who are currently studying for their tests).
+
+In addition to how I have set up the survey, I also ensured that the questions asked within the survey are relevant to the aim of the survey itself. There are no questions in the survey which require the respondent to enter additional personal information, nor were their emails recorded. Response validation was also utilised such as for the question that asked for the duration of the ads. This ensures that we do not end up with any erroneous values which would make cleaning the data far more difficult later on. I also set my rating scale for how the ad/s made students feel to be between 1 (indifferent) to 5 (agitated), so that there are no middle options. `r obsv`
+
+## Findings
+
+`r yeeHAW` Of course as stated earlier, `r beebop`. I also wanted to see in general what the proportions were in terms of ads being *skippable*, and thus the data for this is displayed below:
+
+```{r, echo = FALSE}
+
+##Since ratings are categorical variables we need to explicitly tell that to R because it reads it in as a numerical variable.
+#We'll also remove the NA value before doing so, using a function taught in BIOSCI220 a long long time ago :)
+survey_data_renamed$Response <- factor(survey_data_renamed$Response, levels = 1:5, ordered = TRUE)
+
+survey_data_noNA <- survey_data_renamed %>%
+  filter(!is.na(Response))
+
+survey_data_noNA  %>%
+  ggplot() +
+  geom_bar(aes(x = Skippable, fill = as.factor(Skippable))) +
+  labs(title = "Proportion of Ads That Were Skippable",
+       x = "Skippable?",
+       y = "Proportion",
+       fill = "Skippability") +
+  theme_light(base_family = "Helvetica", base_size = 13) +
+  scale_fill_manual(values = c("Yes" = "#8A2BE2", "No" = "#E48400")) 
+#A Platypus?...PERRY THE PLATYPUSS! 
+
+
+
+```
+
+**Figure.1.** From visual observation of the bar chart above, we can see that a majority of the advertisements were generally skippable. This is an important factor to account for since it can influence how respondents feel about the ad.\newline
+
+\medskip
+
+```{r, echo = FALSE}
+survey_data_noNA %>%
+  ggplot() +
+  geom_bar(aes(y = as.factor(Skippable), fill = as.factor(Response))) +
+  labs(title = "Relationship Between Skippability and Rating",
+       x = "Proportion",
+       y = "Skippability",
+       fill = "Response Rating") + 
+  scale_fill_brewer(type = "seq", palette = 16) +
+  theme_light(base_family = "Helvetica", base_size = 13)
+
+```
+
+**Figure.2.** The graph above elaborates further on why skippability matters. We can see that overall, respondents were more strongly agitated by advertisements regardless of skippability. However, since this is a dynamic dataset, we would expect these to shift and so we cannot state as a matter of fact, whether or not these numbers will stay the same. \newline
+
+Additionally, I wanted to observe exactly what types of advertisements were skippable, and which ones were not. Note, that the group "Other Media Related Content" includes ads that are miscellaneous or too sensitive of a topic to include in a university course work (i.e., Gambling, financial Courses...etc). The data for this is displayed below.
+
+```{r, echo = FALSE}
+##Separating measurements where there are two values in one box.
+#Since, this is the final time I'll modify the table itself I will name it survey.df 
+
+survey.df <- survey_data_noNA %>%
+  separate_rows(Type, sep = ", ")
+
+## Graph Showing The Type Of Ads Targeted To Students (i.e., Our Respondents/ Primary Sampling Units)
+
+type.graph <- survey.df %>%
+  ggplot() +
+  geom_bar(aes(y = as.factor(Type), fill = as.factor(Skippable))) + 
+  labs(title = "Types Of Ads Targeted To Students",
+       x = "Proportion",
+       y = "Type of Advertisement",
+       fill = "Skippability") +
+  scale_fill_brewer(type = "qual", palette = 6) +
+  theme_light(base_family = "Helvetica", base_size = 13)   
+
+print(type.graph)
+
+
+
+
+
+```
+
+**Figure.3.** As we can see, the majority of the advertisements were those that were considered miscellaneous (i.e., Other Media Related Content). These included advertisements that had content that could be considered 'exploitative' towards our primary sampling units. We can also see that just less than half of all the Food/Energy Drink ads were unskippable, though, this can be explained by the fact that these type of ads are generally less than a minute long.
+
+## Conclusion 
+
+Since this is a dynamic dataset, with increasing responses, we may see new patterns in the figure above that differ from what is displayed currently. However, on average, we should still observe an up-tick in miscellaneous advertisements, followed by food and energy drink advertisements. Students may also notice more recurring ads, such as those for Red Bull energy drinks or exploitative advertisements. Given the influential nature of ads, student responses may shift toward the far end of agitation over time compared to their initial survey responses. This suggests that we need to account for time as a variable in our dataset to offset potential bias introduced by prolonged exposure and changing perceptions.
