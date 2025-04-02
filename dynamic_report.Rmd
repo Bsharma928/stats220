@@ -42,7 +42,9 @@ h2{
 
 This survey aims to analyse the types of advertisements targeted at students while they study for their tests. Over time, the frequency and duration of online ads have increased, particularly with platforms like YouTube enforcing stricter anti-ad blocker policies. With unskippable and prolonged advertisements becoming more common, I sought to investigate the nature and prevalence of these ads, focusing on their content and how they might impact students' study experiences. Respondents were also encouraged to complete this survey multiple times, and preferably as soon as these ads appeared.
 
-<img src="https://private-user-images.githubusercontent.com/201402802/429328237-44e250a0-54d4-4300-816c-305cd9e2c04b.jpg?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDM1NzI5OTQsIm5iZiI6MTc0MzU3MjY5NCwicGF0aCI6Ii8yMDE0MDI4MDIvNDI5MzI4MjM3LTQ0ZTI1MGEwLTU0ZDQtNDMwMC04MTZjLTMwNWNkOWUyYzA0Yi5qcGc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwNDAyJTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDQwMlQwNTQ0NTRaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1iMjljOTc4MzJjOGE5YmIyYzBhOTY1Yzc4ZDdhYTNjZjlmOGJlZTJhZTVmYTYzZjE5NjEzMWM4ZjljMGU4NTA3JlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.wWQ-Dug6KqMP9FODoOaKDvHvmELzoyWK__GKJJY7Xr8" alt="An artwork done by me Titled "One Fateful STATS330 With A Legend" width="617" height="431">
+<img src="https://github.com/Bsharma928/stats220/blob/main/Bhai.3.jpg?raw=true" 
+     alt="An artwork done by me Titled 'One Fateful STATS330 With A Legend'" 
+     width="617" height="431">
 
 ## Methodology
 
