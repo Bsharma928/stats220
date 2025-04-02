@@ -42,7 +42,7 @@ h2{
 
 This survey aims to analyse the types of advertisements targeted at students while they study for their tests. Over time, the frequency and duration of online ads have increased, particularly with platforms like YouTube enforcing stricter anti-ad blocker policies. With unskippable and prolonged advertisements becoming more common, I sought to investigate the nature and prevalence of these ads, focusing on their content and how they might impact students' study experiences. Respondents were also encouraged to complete this survey multiple times, and preferably as soon as these ads appeared.
 
-![An artwork done by me Titled "One Fateful STATS330 With A Legend"](Bhai.3.jpg)
+![](Bhai.3.jpg){width="6.43in"}
 
 ## Methodology
 
